@@ -7,7 +7,10 @@ REM Interval in seconds (e.g., 60 seconds = 1 minute)
 set interval=60
 
 :loop
-call "%batch_file_path%"
-echo Executed batch file at %DATE% %TIME%
+echo Executing batch file at %DATE% %TIME%
+start "" /wait cmd /c "%batch_file_path%"
+
+REM Waiting specified interval before next execution
 timeout /t %interval% /nobreak > NUL
+
 goto loop
