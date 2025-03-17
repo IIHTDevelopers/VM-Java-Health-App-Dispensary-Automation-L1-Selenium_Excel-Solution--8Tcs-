@@ -8,7 +8,7 @@ set interval=60
 
 :loop
 echo Executing batch file at %DATE% %TIME%
-start "" /wait cmd /c "%batch_file_path%"
+call "%batch_file_path%"
 
 REM Waiting specified interval before next execution
 timeout /t %interval% /nobreak > NUL
